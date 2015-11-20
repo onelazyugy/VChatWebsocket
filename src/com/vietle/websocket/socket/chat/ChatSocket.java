@@ -27,7 +27,10 @@ public class ChatSocket implements WebSocketIfc{
 	private static final Set<Session> sessions = Collections.synchronizedSet(new HashSet<Session>());
 	
 	public ChatSocket() {}
-
+	
+	/**
+	 * Open a session when client request.
+	 */
 	@OnOpen
 	@Override
 	public void onOpen(Session session) {
@@ -41,6 +44,9 @@ public class ChatSocket implements WebSocketIfc{
 		sessions.add(session);
 	}
 	
+	/**
+	 * Receive a message from client and do something with it.
+	 */
 	@OnMessage
 	@Override
 	public void onMessage(String data, Session session) {
@@ -49,6 +55,9 @@ public class ChatSocket implements WebSocketIfc{
 		sendMessage(data); 
 	} 
 
+	/**
+	 * Close the socket by removing the session.
+	 */
 	@OnClose
 	@Override
 	public void onClose(Session session) {
@@ -72,6 +81,11 @@ public class ChatSocket implements WebSocketIfc{
 		}
 	}
 	
+	/**
+	 * Send message back to client once they open a connection.
+	 * @param s
+	 * @param message
+	 */
 	public static void sendConnectedMessage(Session s, String message){
 		try{
 			System.out.println("sending message: " + message);
@@ -84,6 +98,9 @@ public class ChatSocket implements WebSocketIfc{
 	@Override
 	public void onError(Throwable t) {}
 
+	/**
+	 * React when there is an error while communicating with client/server.
+	 */
 	@OnError
 	@Override
 	public void onError(Throwable t, Session session) {
