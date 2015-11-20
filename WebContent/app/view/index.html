@@ -1,0 +1,61 @@
+<div>
+	 <div class="row clearfix">
+	     <div class="col-md-12 column">
+	         <div class="row clearfix">
+	             <div class="col-md-12 column">
+	                 <form class="form-inline" name="storeFiForm" ng-submit="" novalidate>                                
+	                     <!-- <button type="submit" class="btn btn-primary" ng-click="connect()" ng-disabled="">Connect</button>  -->                               
+	                     <div class="form-group">
+	                         <label><b>Current Status:</b> <span>{{msg}}</span></label>                                   
+	                     </div>
+	                 </form>
+	             </div>
+	         </div><hr>    
+	         <div class="row clearfix">
+	             <div class="col-md-12 column">
+	                 <!-- <div class="row clearfix">
+	                     <div class="col-md-12 column">
+	                         <label>Action</label>
+	                         <select>
+	                             <option value="a">a</option>
+	                             <option value="c">b</option>
+	                             <option value="c">c</option>
+	                             <option value="d">d</option>
+	                         </select>
+	                     </div>
+	                 </div> -->
+	                 <div class="row clearfix" style="margin-bottom: 12px;">
+	                     <div class="col-md-12 column">
+	                     	 <label><b>Request:</b></label>     	
+	                     	<textarea class="form-control" placeholder="{{placeholder}}" rows="4" ng-model="prePopulateTextarea"></textarea>
+	                     </div>
+	                 </div>
+	                 <div class="row clearfix" style="margin-bottom: 12px;">
+	                     <div class="col-md-12 column">
+	                         <label><b>Response:</b></label>
+	                         <textarea class="form-control" rows="6" ng-model="postPopulateTextarea"></textarea>
+	                     </div>
+	                 </div>
+	                 <div class="row clearfix">
+	                   	<div class="col-md-12 column">
+		                   	<div class="btn-toolbar pull-right">
+							  	<button  class="btn btn-primary" ng-click="submit()">Submit</button>
+							  	<button  class="btn btn-default" ng-click="clear()">Clear All</button>
+							  	<button  class="btn btn-default" ng-click="close()">Close Connection</button>
+							</div>
+						</div>
+	                 </div>	   
+	                 
+	                 <div class="row clearfix">
+	                 	<label><b>All Status: </b></label>
+	                 	<div ng-repeat="status in msgArray track by $index">
+	               		<ul>
+	               			<li>{{status}}</li>
+	               		</ul>
+	               	</div>
+	                 </div>              
+	             </div>
+	         </div>
+	     </div>
+	 </div> 
+</div>

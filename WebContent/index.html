@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="toolrentalsimulator" id="ng-app">
+    <head>
+        <title>Angularjs and Java Websocket</title>
+        <link rel="shortcut icon" href="assets/images/web.ico">
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-yeti.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    </head>
+    <body ng-controller="MainCtrl">
+        <div class="container-fluid" style="padding: 10px 50px 10px 50px;"> 
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div class="row clearfix" style="padding-bottom: 5px;">
+                        <div class="col-md-5 column">
+                            <div style="overflow: auto;">
+                                <a ui-sref="stores.offline"><img src="assets/images/web.png" alt="Home" style="float: left;" /></a>
+                                <span style="float: left; margin-left: 10px;">
+                                    <h4 style="font-weight: bold; margin-top: 0px; font-size: 1.6em;">Angularjs and Java Websocket</h4>
+                                    <span style="font-style: italic; font-weight: bold;">an awesome Angularjs/Java websocket</span>
+                                </span>
+                            </div>
+                        </div>                    
+                    </div><hr>
+                    <nav class="navbar navbar-default" role="navigation">
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a ui-sref="home">Home</a>
+                                </li>
+                                <li>
+                                    <a ui-sref="chat">Chat</a>
+                                </li>                       
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>         
+            <div class="row clearfix">
+                <div class="col-md-12 column" ui-view=""></div>
+            </div>             
+        </div>
+    </body>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="bower_components/websocket/ng-websocket.js"></script>
+    <script type="text/javascript" src="bower_components/angular-highlightjs/angular-highlightjs.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+    
+    <script type="text/javascript" src="app/app.js"></script>
+    <!-- Utils -->
+    <script type="text/javascript" src="app/utils/filters.js"></script>
+    <script type="text/javascript" src="app/utils/directives.js"></script>
+    <script type="text/javascript" src="app/utils/socketUtils.js"></script>
+    
+    <!-- Controller -->
+    <script type="text/javascript" src="app/view/indexCtrl.js"></script>
+    <script type="text/javascript" src="app/view/chat/chatCtrl.js"></script>
+</html>

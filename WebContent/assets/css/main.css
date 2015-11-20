@@ -1,0 +1,63 @@
+.gridStyle {
+    height: 600px;
+}
+.searchBox {
+    -moz-box-shadow: 0 0 2px black;
+    -webkit-box-shadow: 0 0 2px black;
+    box-shadow: 0 0 2px black;
+    padding: 20px 20px 20px 20px;
+    display: inline-block;
+}
+.pointer {
+    cursor: pointer;
+    cursor: hand;
+}
+/***** RECEIPT *****/
+
+.receipt, .receipt span, .receipt div {
+    font-family: monospace;
+    color: black;
+    text-align: center;
+    line-height: auto;
+}
+.receipt pre {
+    font-family: monospace;
+    white-space: pre;
+    margin: 1em 0px;
+}
+.receipt table {
+    white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-variant: normal;
+    font-style: normal;
+    color: -webkit-text;
+    text-align: start;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+}
+.sql {
+    border: 1px solid #C2C2C2;
+    border-radius: 3px;
+    padding: 5px;
+    background: #EBEBE0;
+    font-family: "Courier New";
+    font-size: 14px;
+    margin-top: 5px;
+}
+.pointer {
+    cursor: pointer;
+}
+.padding-top {
+    padding-top: 10px;
+}
+thead > tr > th{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

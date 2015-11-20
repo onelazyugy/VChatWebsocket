@@ -1,0 +1,30 @@
+<div class="row clearfix">
+    <div class="col-md-12 column">
+    	<div class="row clearfix">
+    		<div class="col-md-2 column">
+    			<h3><center>AN AWESOME CHAT ROOM</center></h3>
+    		</div>
+    		<div class="col-md-10 column">
+	    		<form class="form-inline">			  	
+				  	<div class="form-group">
+				    	<input type="text" class="form-control" ng-model="name" placeholder="Name">
+				  	</div>
+			  		<button type="submit" class="btn btn-primary" ng-click="join()">Join</button>	
+			  		<button type="submit" class="btn btn-warning" ng-click="exit()">Exit</button>
+			  		<label>{{status}}</label>		  	
+				</form><hr>
+			</div>
+    	</div>
+    	<div class="row clearfix">
+    		<div class="col-md-12 column">
+	    		<div class="well">{{msg}}</div>
+	    		<form class="form-inline pull-right">			  	
+				  	<div class="form-group">
+				    	<input type="text" class="form-control" ng-model="message" placeholder="Chat Message">
+				  	</div>
+			  		<button type="submit" class="btn btn-primary" ng-click="sendMsg()" ng-disabled="joined==false">Send</button>			  						  	
+				</form>
+			</div>
+    	</div>
+    </div>
+</div>
