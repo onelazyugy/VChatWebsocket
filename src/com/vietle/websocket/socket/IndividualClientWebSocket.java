@@ -27,9 +27,7 @@ public class IndividualClientWebSocket implements WebSocketIfc {
 	@OnOpen
 	@Override
 	public void onOpen(Session session) {
-		this.session = session;		
-		/*String clientUUID = "1234";
-		IndividualClientWebSocket.clientMap.put(clientUUID, this);*/
+		this.session = session;
 	}
 
 	@OnMessage
