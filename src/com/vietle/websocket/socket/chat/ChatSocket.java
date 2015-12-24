@@ -79,6 +79,12 @@ public class ChatSocket implements WebSocketIfc{
 				System.out.println("Error when sending message to client:\n" + e.getMessage());
 			}
 		}
+		/*try{
+			System.out.println("sending message: " + message);
+			getSession().getBasicRemote().sendText(message);
+		}catch(IOException e){
+			System.out.println("Error when sending message to client:\n" + e.getMessage());
+		}*/
 	}
 	
 	/**

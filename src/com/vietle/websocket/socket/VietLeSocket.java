@@ -10,7 +10,7 @@ import javax.websocket.server.ServerEndpoint;
 
 /**
  * A websocket to enable client and server communication.
- * Only handle one client at a time
+ * Only handle one client at a time 
  * Ex: UI send a request, and this server return a response.
  * @author dev
  *
