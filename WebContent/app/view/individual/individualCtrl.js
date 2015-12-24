@@ -13,7 +13,11 @@ controllers.controller('individualCtrl', ['$scope', 'socketUtils', '$rootScope',
 			} else {
 				//console.log("message to server: " + JSON.stringify(messageObj));
 				//$scope.ws.$emit(name + " say: " + JSON.stringify(messageObj));
-				$scope.ws.$emit("message: " + $scope.message + " UUID: " + uuid);
+				var msgToServer = {};
+				msgToServer.uuid = uuid;
+				msgToServer.msg = $scope.message;
+				console.log("message to server: " + JSON.stringify(msgToServer));
+				$scope.ws.$emit(JSON.stringify(msgToServer));
 			}
 			
 			//callback to handle open and send a message to server
@@ -21,7 +25,13 @@ controllers.controller('individualCtrl', ['$scope', 'socketUtils', '$rootScope',
 				console.log("$open");
 				//console.log("message to server: " + JSON.stringify(messageObj));
 				//$scope.ws.$emit(name + " say: " + JSON.stringify(messageObj));
-				$scope.ws.$emit("message: " + $scope.message + " UUID: " + uuid);
+				//$scope.ws.$emit("message: " + $scope.message + " UUID: " + uuid);
+				
+				var msgToServer = {};
+				msgToServer.uuid = uuid;
+				msgToServer.msg = $scope.message;
+				console.log("message to server: " + JSON.stringify(msgToServer));
+				$scope.ws.$emit(JSON.stringify(msgToServer));
 			});
 			
 			//callback function to handle a message coming from server

@@ -3,6 +3,7 @@ package com.vietle.websocket.socket;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
@@ -20,24 +21,25 @@ public class IndividualClientWebSocket implements WebSocketIfc {
 	@Override
 	public void onOpen(Session session) {
 		this.session = session;		
-		String clientUUID = "1234";
-		IndividualClientWebSocket.clientMap.put(clientUUID, this);
+		/*String clientUUID = "1234";
+		IndividualClientWebSocket.clientMap.put(clientUUID, this);*/
 	}
 
 	@OnMessage
 	@Override
 	public void onMessage(String data, Session session) {
-		String clientUUID = "1234";
-		if(!IndividualClientWebSocket.clientMap.containsKey(clientUUID)){
+		String[] msgArr = parseClientMsg(data);
+		IndividualClientWebSocket.clientMap.put(msgArr[0], this);
+		if(!IndividualClientWebSocket.clientMap.containsKey(msgArr[0])){
 			try {
-				this.session.getBasicRemote().sendText("client not found");
+				this.session.getBasicRemote().sendText("client not found with uuid: " + msgArr[0]);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			return;
 		}
 		try {
-			this.session.getBasicRemote().sendText("Hi " + clientUUID);
+			this.session.getBasicRemote().sendText("client:  " + msgArr[0] + " sent: " + msgArr[1]);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -64,5 +66,20 @@ public class IndividualClientWebSocket implements WebSocketIfc {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public String[] parseClientMsg(String msg){		
+		msg = msg.replace("{\"", "").replace("}", "").replace("\"", "").replace(",msg", "").replace("uuid:", "");
+		System.out.println("msg without double quote: " + msg);
+		StringTokenizer token = new StringTokenizer(msg, ":");
+		String[] uuidToMsgArr = new String[2];
+		int i = 0;
+		while(token.hasMoreTokens()){
+			String t = token.nextToken();
+			System.out.println(t);
+			uuidToMsgArr[i] = t;
+			i++;
+		}
+		return uuidToMsgArr;
 	}
 }
