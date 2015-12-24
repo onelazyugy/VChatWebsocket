@@ -12,6 +12,13 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+/**
+ * Store a UUID from each client on every request, then each subsequence request, we check the UUID, 
+ * if that UUID exist we send a message back to that client only
+ * http://stackoverflow.com/questions/17080216/how-to-send-message-to-particular-websocket-connection-using-java-server
+ * @author vle
+ *
+ */
 @ServerEndpoint("/individual")
 public class IndividualClientWebSocket implements WebSocketIfc {
 	private final static Map<String, IndividualClientWebSocket> clientMap = new HashMap<>();
